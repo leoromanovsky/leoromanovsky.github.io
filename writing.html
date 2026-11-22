@@ -1,0 +1,18 @@
+---
+layout: page
+title: Writing
+kicker: Archive
+permalink: /writing/
+lede: Essays, notes, and write-ups, newest first.
+---
+{%- if site.posts.size > 0 -%}
+  {%- assign by_year = site.posts | group_by_exp: "p", "p.date | date: '%Y'" -%}
+  {%- for year in by_year -%}
+  <section class="year-group">
+    <h2>{{ year.name }}</h2>
+    {%- include post-list.html posts=year.items -%}
+  </section>
+  {%- endfor -%}
+{%- else -%}
+  <p class="empty">Nothing here yet — the first post is in progress.</p>
+{%- endif -%}

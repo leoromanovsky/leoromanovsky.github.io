@@ -1,0 +1,23 @@
+---
+layout: default
+---
+{%- assign words = content | strip_html | number_of_words -%}
+{%- assign minutes = words | divided_by: 230 | at_least: 1 -%}
+<article class="wrap post" itemscope itemtype="https://schema.org/BlogPosting">
+  <header class="post-header">
+    <p class="kicker mono">
+      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: '%B %-d, %Y' }}</time>
+      <span aria-hidden="true">·</span> {{ minutes }} min read
+      {%- if page.tags.size > 0 %} <span aria-hidden="true">·</span> {{ page.tags | join: ', ' }}{% endif %}
+    </p>
+    <h1 class="post-title" itemprop="headline">{{ page.title | escape }}</h1>
+    {%- if page.description %}<p class="lede" itemprop="description">{{ page.description | escape }}</p>{% endif %}
+  </header>
+  <div class="prose" itemprop="articleBody">
+    {{ content }}
+  </div>
+  <nav class="post-nav" aria-label="More writing">
+    {%- if page.previous %}<a class="prev" href="{{ page.previous.url | relative_url }}"><span class="mono">Older</span>{{ page.previous.title | escape }}</a>{% else %}<span></span>{% endif %}
+    {%- if page.next %}<a class="next" href="{{ page.next.url | relative_url }}"><span class="mono">Newer</span>{{ page.next.title | escape }}</a>{% endif %}
+  </nav>
+</article>

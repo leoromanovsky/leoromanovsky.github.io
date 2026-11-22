@@ -14,10 +14,13 @@ twitter_username: leoromanovsky
 github_username: leoromanovsky
 
 # Build settings
-theme: minima
 markdown: kramdown
 highlighter: rouge
 permalink: /:year/:month/:day/:title/
+
+defaults:
+  - scope: { path: "", type: posts }
+    values: { layout: post }
 
 plugins:
   - jekyll-feed

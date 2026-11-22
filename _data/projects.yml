@@ -1,0 +1,10 @@
+# Projects shown on /projects/. Set `featured: true` to also show one on the home page.
+# Fields: name, year, status, summary, url (optional), tags (optional), featured (optional)
+
+- name: leoromanovsky.com
+  year: 2026
+  status: Live
+  summary: This site. Jekyll 4 on Ruby 4, deployed with GitHub Actions, with a hand-rolled theme and generated topographic contours.
+  url: https://github.com/leoromanovsky/leoromanovsky.github.io
+  tags: [jekyll, css]
+  featured: true
