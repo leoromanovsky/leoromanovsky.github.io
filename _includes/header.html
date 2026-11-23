@@ -1,0 +1,19 @@
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ site.title }}, home">
+      <span class="brand-mark" aria-hidden="true">LR</span>
+      <span class="brand-name">{{ site.title }}</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      {%- for item in site.data.nav -%}
+        {%- assign current = false -%}
+        {%- if page.url == item.url or page.url contains item.url and item.url != '/' -%}{%- assign current = true -%}{%- endif -%}
+        {%- if item.url == '/writing/' and page.layout == 'post' -%}{%- assign current = true -%}{%- endif -%}
+        <a href="{{ item.url | relative_url }}"{% if current %} aria-current="page"{% endif %}>{{ item.title }}</a>
+      {%- endfor -%}
+      <button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>

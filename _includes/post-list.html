@@ -1,0 +1,12 @@
+{%- comment -%} Usage: include post-list.html posts=... {%- endcomment -%}
+<ol class="post-list">
+  {%- for post in include.posts -%}
+  <li class="post-item">
+    <time class="mono" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%b %d, %Y' }}</time>
+    <div>
+      <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+      {%- if post.description %}<p class="post-desc">{{ post.description | escape }}</p>{% endif -%}
+    </div>
+  </li>
+  {%- endfor -%}
+</ol>

@@ -1,0 +1,10 @@
+<ul class="project-grid">
+  {%- for p in include.projects -%}
+  <li class="project">
+    <p class="project-meta mono">{{ p.year }}{% if p.status %} · {{ p.status }}{% endif %}</p>
+    <h3>{% if p.url %}<a href="{{ p.url | relative_url }}">{{ p.name }}</a>{% else %}{{ p.name }}{% endif %}</h3>
+    <p>{{ p.summary }}</p>
+    {%- if p.tags %}<p class="tags mono">{% for t in p.tags %}<span>{{ t }}</span>{% endfor %}</p>{% endif -%}
+  </li>
+  {%- endfor -%}
+</ul>

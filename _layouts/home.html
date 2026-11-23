@@ -1,0 +1,37 @@
+---
+layout: default
+---
+<section class="hero">
+  <div class="contours" aria-hidden="true"></div>
+  <div class="wrap hero-inner">
+    <p class="kicker mono">{{ site.description }}</p>
+    <h1 class="hero-title">{{ page.headline | default: site.title }}</h1>
+    <div class="hero-intro">
+      {{ content }}
+    </div>
+  </div>
+</section>
+
+<section class="wrap section">
+  <header class="section-head">
+    <h2>Writing</h2>
+    {%- if site.posts.size > 0 %}<a class="mono more" href="{{ '/writing/' | relative_url }}">All posts →</a>{% endif %}
+  </header>
+  {%- if site.posts.size > 0 -%}
+    {%- assign recent = site.posts | slice: 0, 5 -%}
+    {%- include post-list.html posts=recent -%}
+  {%- else -%}
+    <p class="empty">First posts are on the way. <a href="{{ '/feed.xml' | relative_url }}">Subscribe via RSS</a> to catch them.</p>
+  {%- endif -%}
+</section>
+
+{%- assign featured = site.data.projects | where: "featured", true -%}
+{%- if featured.size > 0 %}
+<section class="wrap section">
+  <header class="section-head">
+    <h2>Projects</h2>
+    <a class="mono more" href="{{ '/projects/' | relative_url }}">All projects →</a>
+  </header>
+  {%- include project-grid.html projects=featured -%}
+</section>
+{%- endif %}

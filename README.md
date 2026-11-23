@@ -19,13 +19,28 @@ description: "One-line summary used for SEO and social cards"
 Post body…
 ```
 
+Work-in-progress posts go in `_drafts/` (no date in the filename) and only
+render locally with `--drafts`. `_drafts/style-guide.md` exercises every
+element of the theme.
+
+## Projects and navigation
+
+- `_data/projects.yml` — entries on `/projects/`; `featured: true` also shows one on the home page
+- `_data/nav.yml` — header links
+
+## Theme
+
+Hand-rolled, no theme gem: `_layouts/`, `_includes/`, and plain CSS in
+`assets/css/main.css` (colors are CSS variables at the top, with a dark
+palette). The topographic background is `assets/img/contours.svg`.
+
 ## Running locally
 
 Needs Ruby 4.0 (see `.ruby-version`):
 
 ```bash
 bundle install
-bundle exec jekyll serve --livereload
+bundle exec jekyll serve --livereload --drafts
 ```
 
 Or with Docker, no local Ruby needed:

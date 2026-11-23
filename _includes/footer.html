@@ -1,0 +1,10 @@
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p class="footer-sign">© {{ site.time | date: '%Y' }} {{ site.author.name }}</p>
+    <ul class="footer-links">
+      {%- if site.github_username %}<li><a href="https://github.com/{{ site.github_username }}" rel="me">GitHub</a></li>{% endif -%}
+      {%- if site.twitter_username %}<li><a href="https://x.com/{{ site.twitter_username }}" rel="me">X</a></li>{% endif -%}
+      <li><a href="{{ '/feed.xml' | relative_url }}">RSS</a></li>
+    </ul>
+  </div>
+</footer>
